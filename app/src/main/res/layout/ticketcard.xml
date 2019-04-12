@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    android:layout_margin="5dp"
+    tools:ignore="HardcodedText">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ticketdate"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:layout_below="@id/ticketlocation"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ticketfest"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ticketlocation"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:layout_below="@+id/ticketfest"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ticketurl"
+            android:text="TICKETS"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/ticketdate" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ticketrsvp"
+            android:text="GOING"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/ticketdate"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

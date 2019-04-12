@@ -1,0 +1,164 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/bottom_margin"
+    tools:ignore="ContentDescription">
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        tools:ignore="HardcodedText">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notifications"
+            android:id="@+id/notifbar"
+            android:textAppearance="@style/TextAppearance.Design.Hint" />
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Facebook Notifications"
+            android:layout_below="@+id/notifbar"
+            android:id="@+id/fanotifications"
+            android:padding="10dp"/>
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Instagram Notifications"
+            android:id="@+id/innotifications"
+            android:layout_below="@+id/fanotifications"
+            android:padding="10dp"/>
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Twitter Notifications"
+            android:id="@+id/twnotifications"
+            android:layout_below="@+id/innotifications"
+            android:padding="10dp"/>
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Youtube Notifications"
+            android:id="@+id/vinotifications"
+            android:layout_below="@+id/twnotifications"
+            android:padding="10dp"/>
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Tickets Notifications"
+            android:id="@+id/tinotifications"
+            android:layout_below="@+id/vinotifications"
+            android:padding="10dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/separator"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/tinotifications"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separator"
+            android:id="@+id/contactcontainer"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:background="@null"
+                android:layout_gravity="bottom"
+                android:src="@drawable/baseline_contact_support_black_36dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/contactus"
+                android:paddingTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="Submit Feedback"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/contactcontainer"
+            android:id="@+id/ratecontainer">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:background="@null"
+                android:layout_gravity="bottom"
+                android:src="@drawable/baseline_rate_review_black_36dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/rateapp"
+                android:paddingTop="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="Rate the app"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/separator2"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@id/ratecontainer"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About"
+            android:id="@+id/aboutbar"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/separator2"
+            android:textAppearance="@style/TextAppearance.Design.Hint" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/aboutaurora"
+            android:layout_below="@+id/aboutbar"
+            android:text="About Aurora Aksnes"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/aboutapp"
+            android:layout_below="@+id/aboutaurora"
+            android:text="About the App"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+    </RelativeLayout>
+</ScrollView>

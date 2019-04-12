@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="fbprofilepicsize">60dp</dimen>
+    <dimen name="playlistcardsizedp">150dp</dimen>
+    <dimen name="playlistcardsizepxwidth">300dp</dimen>
+    <dimen name="playlistcardsizepxheight">200dp</dimen>
+    <dimen name="app_bar_height">75dp</dimen>
+    <dimen name="bottom_margin">45dp</dimen>
+
+</resources>
