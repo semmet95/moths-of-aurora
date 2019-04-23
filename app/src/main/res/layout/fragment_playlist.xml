@@ -1,24 +1,6 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+<android.support.v7.widget.RecyclerView
     android:layout_width="match_parent"
-    android:layout_marginBottom="?android:attr/actionBarSize">
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/playlistrecycler"
-        tools:context="amit.apps.aurora_raw3.PlaylistFragment" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addbutton"
-        android:src="@drawable/round_add_white_36"
-        android:clickable="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:focusable="true" />
-</RelativeLayout>
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/playlistrecycler"
+    />

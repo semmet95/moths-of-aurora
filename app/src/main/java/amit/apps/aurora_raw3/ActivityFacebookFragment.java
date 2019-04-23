@@ -29,8 +29,6 @@ public class ActivityFacebookFragment extends Fragment {
 
         MyFirebaseMessagingService.unseennotifications.remove("Facebook");
 
-        ActivityFragment.tabtoload=0;
-
         facebookrecycler=layout.findViewById(R.id.facebookrecycler);
 
         populateRecycler();
@@ -58,8 +56,8 @@ public class ActivityFacebookFragment extends Fragment {
 
                 holder.setTimeposted(model.getCreated_time());
                 holder.setPostmessage(model.getMessage());
-                holder.setProfilethumbnail(DatabaseHolder.getFacebookprofilepicurl(), getParentFragment());
-                holder.setPostthumbnail(model.getFull_picture(), getParentFragment());
+                holder.setProfilethumbnail(DatabaseHolder.getFacebookprofilepicurl(), getContext());
+                holder.setPostthumbnail(model.getFull_picture(), getContext());
                 holder.setUrl(model.getLink());
             }
 

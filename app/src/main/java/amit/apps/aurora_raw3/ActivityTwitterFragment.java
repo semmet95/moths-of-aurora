@@ -31,8 +31,6 @@ public class ActivityTwitterFragment extends Fragment {
 
         MyFirebaseMessagingService.unseennotifications.remove("Twitter");
 
-        ActivityFragment.tabtoload=2;
-
         twitterrecycler =layout.findViewById(R.id.twitterrecycler);
 
         populateRecycler();
@@ -96,8 +94,8 @@ public class ActivityTwitterFragment extends Fragment {
 
                 holder.setTimeposted(model.getCreated_time());
                 holder.setPostmessage(model.getMessage());
-                holder.setProfilethumbnail(DatabaseHolder.getTwitterprofilepicurl(), getParentFragment());
-                holder.setPostthumbnail(model.getFull_picture(), getParentFragment());
+                holder.setProfilethumbnail(DatabaseHolder.getTwitterprofilepicurl(), getContext());
+                holder.setPostthumbnail(model.getFull_picture(), getContext());
                 holder.setUrl(model.getLink());
             }
 

@@ -16,7 +16,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import amit.apps.aurora_raw3.ActivityFragment;
 import amit.apps.aurora_raw3.MainActivity;
 import amit.apps.aurora_raw3.R;
 import amit.apps.aurora_raw3.datainitializers.SettingsHolder;
@@ -132,15 +131,15 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
             //Log.e("notification received :", "with app in background with title = "+notificationtitle);
             if(notificationtitle.compareTo("Facebook")==0 && notifyFA) {
                 //Log.e("notifying :", "for fb");
-                ActivityFragment.tabtoload=0;
+                //ActivityFragment.tabtoload=0;
                 notificationManager.notify(facebook_group,fbId, faNotification);
             } else if(notificationtitle.compareTo("Instagram")==0 && notifyIN) {
                 //Log.e("notifying :", "for insta");
-                ActivityFragment.tabtoload=1;
+                //ActivityFragment.tabtoload=1;
                 notificationManager.notify(instagram_group,inId, inNotification);
             } else if(notificationtitle.compareTo("Twitter")==0 && notifyTW) {
                 //Log.e("notifying :", "for tweet");
-                ActivityFragment.tabtoload=2;
+                //ActivityFragment.tabtoload=2;
                 notificationManager.notify(twitter_group,twId, twNotification);
             } else if(notificationtitle.compareTo("Tickets")==0 && notifyTI) {
                 //Log.e("notifying :", "for ticket");

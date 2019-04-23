@@ -4,41 +4,74 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="10dp"
-    android:layout_margin="5dp"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="3dp"
+    android:layout_marginBottom="1dp"
     tools:ignore="ContentDescription">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp">
+        android:padding="0dp">
 
         <ImageView
-            android:layout_width="@dimen/fbprofilepicsize"
-            android:layout_height="@dimen/fbprofilepicsize"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
             android:id="@+id/profilethumbnail" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/timeposted"
-            tools:ignore="RelativeOverlap" />
+            android:text="AURORA"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/postusername"
+            android:layout_toEndOf="@id/profilethumbnail"/>
 
-        <ImageView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/profilethumbnail"
+            android:id="@+id/timeposted"
+            android:layout_marginStart="10dp"
+            android:textSize="11sp"
+            android:layout_below="@id/postusername"
+            />
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/profilethumbnail"
-            android:id="@+id/postthumbnail"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            android:id="@+id/postthumbcontainer">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/postthumbnail"/>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/postthumbnail"
+            android:layout_below="@+id/postthumbcontainer"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black"
             android:id="@+id/postmessage"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

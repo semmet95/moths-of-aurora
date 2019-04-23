@@ -30,7 +30,7 @@ public class VideosAdapter {
             super(itemView);
 
             videothumbnail=itemView.findViewById(R.id.videothumbnail);
-            playlistaddbutton=itemView.findViewById(R.id.playlistaddbutton);
+            playlistaddbutton=itemView.findViewById(R.id.addplaylist_button);
             videoduration=itemView.findViewById(R.id.videoduration);
             videotitle=itemView.findViewById(R.id.videotitle);
             videouploader=itemView.findViewById(R.id.videouploader);
@@ -55,7 +55,7 @@ public class VideosAdapter {
         }
 
         public void setVideoviews(String v) {
-            videoviews.setText(v);
+            videoviews.setText( " · " + v + " · ");
         }
 
         public void setUrl(final String u) {
