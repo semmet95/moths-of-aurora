@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -37,10 +38,10 @@ public class SettingsFragment extends Fragment {
         Switch twnotif = layout.findViewById(R.id.twnotifications);
         Switch vinotif = layout.findViewById(R.id.vinotifications);
         Switch tinotif = layout.findViewById(R.id.tinotifications);
-        TextView contactus = layout.findViewById(R.id.contactus);
-        TextView rateapp = layout.findViewById(R.id.rateapp);
-        TextView aboutaurora = layout.findViewById(R.id.aboutaurora);
-        TextView aboutapp = layout.findViewById(R.id.aboutapp);
+        Button contactus = layout.findViewById(R.id.contactus);
+        Button rateapp = layout.findViewById(R.id.rateapp);
+        Button aboutaurora = layout.findViewById(R.id.aboutaurora);
+        Button aboutapp = layout.findViewById(R.id.aboutapp);
 
         fanotif.setChecked(SettingsHolder.getfanotif());
         innotif.setChecked(SettingsHolder.getinnotif());

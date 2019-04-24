@@ -33,7 +33,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsViewHol
     public void onBindViewHolder(final ItemsViewHolder holder, int position) {
         holder.setSerialnum((position+1)+"");
         holder.setVideotitle(itemsvideopojo[position].getTitle());
-        holder.setVideoduration(itemsvideopojo[position].getDuration());
+        holder.setVideoduration("Duration · " + itemsvideopojo[position].getDuration());
 
         holder.removevideobutton.setOnClickListener(new View.OnClickListener() {
             @Override

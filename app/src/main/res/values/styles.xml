@@ -26,4 +26,10 @@
     <style name="splashScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
+
+    <style name="ButtonStyle" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorPrimaryFaded</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
 </resources>

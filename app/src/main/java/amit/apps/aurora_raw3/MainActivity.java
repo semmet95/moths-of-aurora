@@ -199,13 +199,13 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e("main_start :", "fragment to load = "+fragmenttoload);
+        /*Log.e("main_start :", "fragment to load = "+fragmenttoload);
         switch (fragmenttoload) {
             case 3: videosIconClicked();
                 break;
             case 4: ticketIconClicked();
                 break;
-        }
+        }*/
     }
 
     private void switchToolbarView(int activeWindow){
