@@ -18,16 +18,14 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ShareActionProvider;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -49,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
     private TextView toolbarTitleView;
     private RadioGroup triToggleGroup;
     private FloatingActionButton playlistFAB;
+    private ImageButton notificationBellView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
 
         // Setup toolbarTitleView
         toolbarTitleView = findViewById(R.id.toolbar_title);
+        // Setup notificationBellView
+        notificationBellView = findViewById(R.id.notification_bell);
         // Setup FAB aka FloatingActionButton
         playlistFAB = findViewById(R.id.playlistFab);
 
@@ -162,6 +163,55 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
             }
         });
 
+        // Setup PopupMenu for notificationBellView
+        final PopupMenu recentnotifications = new PopupMenu(this, notificationBellView);
+        for(String x: MyFirebaseMessagingService.notifications) {
+            if(x.startsWith("Facebook"))
+                recentnotifications.getMenu().add(MyFirebaseMessagingService.fbId, Menu.NONE, Menu.FIRST, x);
+            if(x.startsWith("Instagram"))
+                recentnotifications.getMenu().add(MyFirebaseMessagingService.inId, Menu.NONE, Menu.FIRST, x);
+            if(x.startsWith("Twitter"))
+                recentnotifications.getMenu().add(MyFirebaseMessagingService.twId, Menu.NONE, Menu.FIRST, x);
+            if(x.startsWith("Tickets"))
+                recentnotifications.getMenu().add(MyFirebaseMessagingService.tiId, Menu.NONE, Menu.FIRST, x);
+            if(x.startsWith("Youtube"))
+                recentnotifications.getMenu().add(MyFirebaseMessagingService.viId, Menu.NONE, Menu.FIRST, x);
+        }
+        recentnotifications.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getGroupId()) {
+                    case MyFirebaseMessagingService.fbId:
+                        activityIconClicked(0);
+                        break;
+                    case MyFirebaseMessagingService.inId:
+                        activityIconClicked(1);
+                        break;
+                    case MyFirebaseMessagingService.twId:
+                        activityIconClicked(2);
+                        break;
+                    case MyFirebaseMessagingService.tiId:
+                        ticketIconClicked();
+                        break;
+                    case MyFirebaseMessagingService.viId:
+                        videosIconClicked();
+                        break;
+                }
+
+                return true;
+            }
+        });
+
+        // Setup notificationBellView listener
+        notificationBellView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                notificationBellView.setImageResource(R.drawable.ic_bell);
+                MyFirebaseMessagingService.unseennotifications.clear();
+                recentnotifications.show();
+            }
+        });
+
         Intent caller=getIntent();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
         notificationManager.cancel(MyFirebaseMessagingService.facebook_group, MyFirebaseMessagingService.fbId);
@@ -199,13 +249,17 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
     @Override
     protected void onStart() {
         super.onStart();
-        /*Log.e("main_start :", "fragment to load = "+fragmenttoload);
+        /**
+         * Can be removed as I can't find any use of this logic.
+         * It is restoring videos fragment whenever onResume() is called.
+         *
+        Log.e("main_start :", "fragment to load = "+fragmenttoload);
         switch (fragmenttoload) {
             case 3: videosIconClicked();
                 break;
             case 4: ticketIconClicked();
                 break;
-        }*/
+        }**/
     }
 
     private void switchToolbarView(int activeWindow){
@@ -234,6 +288,12 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
             toolbarTitleView.setText("Settings");
             triToggleGroup.setVisibility(View.GONE);
         }
+
+        if(MyFirebaseMessagingService.unseennotifications.size()>0)
+            notificationBellView.setImageResource(R.drawable.ic_bell_ringing);
+        else
+            notificationBellView.setImageResource(R.drawable.ic_bell);
+
     }
 
     public void activityIconClicked(int tabToLoad) {
@@ -276,6 +336,8 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
     }
 
 
+    /**
+     *  Can be removed as we're using a custom toolbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -340,7 +402,7 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }**/
 
     @Override
     protected void onDestroy() {
@@ -398,13 +460,15 @@ public class MainActivity extends AppCompatActivity implements Application.Activ
         }
     };
 
+    /**
+     *  Can be removed as the share option is moved to settings.
     private Intent doshare() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         String msg="Moths of Aurora\n";
         intent.putExtra(Intent.EXTRA_TEXT, msg+"http://play.google.com/store/apps/details?id="+getPackageName());
         return intent;
-    }
+    }*/
 
     private static class TopicSubscriber extends AsyncTask<Void, Void, Void> {
         @Override

@@ -109,6 +109,7 @@
                 android:layout_alignParentEnd="true"
                 android:focusable="true"
                 android:clickable="true"
+                android:id="@+id/notification_bell"
                 />
 
         </RelativeLayout>

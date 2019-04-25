@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Facebook Notifications"
+            android:text="Facebook"
             android:layout_below="@+id/notifbar"
             android:id="@+id/fanotifications"
             android:layout_marginTop="10dp"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Instagram Notifications"
+            android:text="Instagram"
             android:id="@+id/innotifications"
             android:layout_below="@+id/fanotifications"
             android:padding="10dp"/>
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Twitter Notifications"
+            android:text="Twitter"
             android:id="@+id/twnotifications"
             android:layout_below="@+id/innotifications"
             android:padding="10dp"/>
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Youtube Notifications"
+            android:text="Youtube"
             android:id="@+id/vinotifications"
             android:layout_below="@+id/twnotifications"
             android:padding="10dp"/>
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Tickets Notifications"
+            android:text="Tickets"
             android:id="@+id/tinotifications"
             android:layout_below="@+id/vinotifications"
             android:padding="10dp"/>
@@ -71,7 +71,7 @@
             android:id="@+id/separator"
             android:background="@android:color/darker_gray"
             android:layout_below="@id/tinotifications"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="15dp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -87,15 +87,32 @@
             android:paddingEnd="10dp"
             android:textSize="14sp"
             android:textAllCaps="false"
-            android:drawablePadding="10dp"
-            android:drawableStart="@drawable/ic_review"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_coffee"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sharewithfriends"
+            android:layout_below="@+id/contactus"
+            android:text="Share with friends"
+            android:theme="@style/ButtonStyle"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textAlignment="textStart"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_sharefriends"
             />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rateapp"
-            android:layout_below="@+id/contactus"
+            android:layout_below="@+id/sharewithfriends"
             android:text="Rate the app"
             android:theme="@style/ButtonStyle"
             style="@style/Widget.AppCompat.Button.Borderless"
@@ -104,7 +121,7 @@
             android:paddingEnd="10dp"
             android:textSize="14sp"
             android:textAllCaps="false"
-            android:drawablePadding="10dp"
+            android:drawablePadding="12dp"
             android:drawableStart="@drawable/ic_rate"
             />
 

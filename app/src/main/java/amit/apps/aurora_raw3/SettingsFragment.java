@@ -42,6 +42,7 @@ public class SettingsFragment extends Fragment {
         Button rateapp = layout.findViewById(R.id.rateapp);
         Button aboutaurora = layout.findViewById(R.id.aboutaurora);
         Button aboutapp = layout.findViewById(R.id.aboutapp);
+        Button shareButton = layout.findViewById(R.id.sharewithfriends);
 
         fanotif.setChecked(SettingsHolder.getfanotif());
         innotif.setChecked(SettingsHolder.getinnotif());
@@ -88,6 +89,17 @@ public class SettingsFragment extends Fragment {
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "App Feedback");
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"mothsofaurora@gmail.com"});
                 startActivity(emailIntent);
+            }
+        });
+
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String msg="Moths of Aurora\n";
+                intent.putExtra(Intent.EXTRA_TEXT, msg+"http://play.google.com/store/apps/details?id="+ SettingsFragment.this.getActivity().getPackageName());
+                SettingsFragment.this.getActivity().startActivity(intent);
             }
         });
 

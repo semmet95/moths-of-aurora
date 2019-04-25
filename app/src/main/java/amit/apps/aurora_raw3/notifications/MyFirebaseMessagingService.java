@@ -129,6 +129,10 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
             String notificationtitle=remoteMessage.getData().get("title");
             //Log.e("notification received :", "with app in background with title = "+notificationtitle);
+            /**
+             *  Unable to get why we're setting up values for .tabtoload & .fragmenttoload here
+             *  when we're checking what kinda notification is this in the MainActivity.
+             */
             if(notificationtitle.compareTo("Facebook")==0 && notifyFA) {
                 //Log.e("notifying :", "for fb");
                 //ActivityFragment.tabtoload=0;
@@ -143,11 +147,11 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                 notificationManager.notify(twitter_group,twId, twNotification);
             } else if(notificationtitle.compareTo("Tickets")==0 && notifyTI) {
                 //Log.e("notifying :", "for ticket");
-                MainActivity.fragmenttoload=4;
+                //MainActivity.fragmenttoload=4;
                 notificationManager.notify(tickets_group,tiId, tiNotification);
             } else if(notificationtitle.compareTo("Youtube")==0 && notifyVI) {
                 //Log.e("notifying :", "for video");
-                MainActivity.fragmenttoload=3;
+                //MainActivity.fragmenttoload=3;
                 notificationManager.notify(videos_group,viId, viNotification);
             }
 
