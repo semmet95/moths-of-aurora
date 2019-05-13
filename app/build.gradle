@@ -41,10 +41,10 @@ dependencies {
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation 'com.google.code.gson:gson:2.2.4'
 
-    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
-    compile 'com.android.support:preference-v7:26.1.0'
-    compile 'jp.wasabeef:blurry:2.1.1'
-    compile 'io.paperdb:paperdb:2.6'
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    implementation 'com.android.support:preference-v7:26.1.0'
+    implementation 'jp.wasabeef:blurry:2.1.1'
+    implementation 'io.paperdb:paperdb:2.6'
 
 
 }
