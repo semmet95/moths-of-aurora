@@ -39,10 +39,11 @@ public class SettingsFragment extends Fragment {
         Switch vinotif = layout.findViewById(R.id.vinotifications);
         Switch tinotif = layout.findViewById(R.id.tinotifications);
         Button contactus = layout.findViewById(R.id.contactus);
+        Button shareButton = layout.findViewById(R.id.sharewithfriends);
         Button rateapp = layout.findViewById(R.id.rateapp);
         Button aboutaurora = layout.findViewById(R.id.aboutaurora);
         Button aboutapp = layout.findViewById(R.id.aboutapp);
-        Button shareButton = layout.findViewById(R.id.sharewithfriends);
+        Button privacypolicy = layout.findViewById(R.id.privacypolicy);
 
         fanotif.setChecked(SettingsHolder.getfanotif());
         innotif.setChecked(SettingsHolder.getinnotif());
@@ -128,6 +129,24 @@ public class SettingsFragment extends Fragment {
             }
         });
 
+        rateapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("market://details?id=" + SettingsFragment.this.getContext().getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                        Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET |
+                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try {
+                    startActivity(goToMarket);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id="
+                                    + SettingsFragment.this.getContext().getPackageName())));
+                }
+            }
+        });
+
         aboutaurora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,21 +165,12 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        rateapp.setOnClickListener(new View.OnClickListener() {
+        privacypolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("market://details?id=" + SettingsFragment.this.getContext().getPackageName());
-                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
-                        Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET |
-                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-                try {
-                    startActivity(goToMarket);
-                } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id="
-                                    + SettingsFragment.this.getContext().getPackageName())));
-                }
+                Uri uri = Uri.parse("https://singh-95.github.io/github-pages-with-jekyll/privacy-policy.htm");
+                Intent goToPrivacyPolicy = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(goToPrivacyPolicy);
             }
         });
 
