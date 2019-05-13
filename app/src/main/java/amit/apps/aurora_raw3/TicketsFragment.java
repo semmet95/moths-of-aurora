@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +31,6 @@ public class TicketsFragment extends Fragment {
         MainActivity.fragmenttoload=3;
         MyFirebaseMessagingService.unseennotifications.remove("Tickets");
         getActivity().invalidateOptionsMenu();
-
-        android.support.v7.app.ActionBar actionBar = ((MainActivity)getActivity()).getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle("Tickets");
-        }
 
         ticketrecycler=layout.findViewById(R.id.ticketrecycler);
 
@@ -74,7 +70,7 @@ public class TicketsFragment extends Fragment {
         };
 
         ticketrecycler.setAdapter(firebaseRecyclerAdapter);
-        ticketrecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        ticketrecycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
     }
 
     @Override

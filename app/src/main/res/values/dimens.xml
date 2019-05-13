@@ -1,5 +1,5 @@
 <resources>
-    <dimen name="fbprofilepicsize">60dp</dimen>
+    <dimen name="fbprofilepicsize">32dp</dimen>
     <dimen name="playlistcardsizedp">150dp</dimen>
     <dimen name="playlistcardsizepxwidth">300dp</dimen>
     <dimen name="playlistcardsizepxheight">200dp</dimen>

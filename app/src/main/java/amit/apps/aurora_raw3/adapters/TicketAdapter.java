@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import amit.apps.aurora_raw3.R;
@@ -14,7 +15,8 @@ public class TicketAdapter {
     public static class TicketViewHolder extends RecyclerView.ViewHolder {
 
         TextView date, fest, location;
-        Button url, rsvp;
+        Button url;
+        ImageButton rsvp;
 
         public TicketViewHolder(View itemView) {
             super(itemView);

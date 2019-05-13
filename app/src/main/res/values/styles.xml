@@ -1,8 +1,8 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#FF424242</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
@@ -26,4 +26,10 @@
     <style name="splashScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
+
+    <style name="ButtonStyle" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorPrimaryFaded</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
 </resources>

@@ -3,17 +3,150 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="amit.apps.aurora_raw3.MainActivity"
-    tools:ignore="ContentDescription" >
+    tools:ignore="ContentDescription">
 
+    <!-- Toolbar -->
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_toolbar"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardElevation="22dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feed"
+                android:textSize="18sp"
+                android:id="@+id/toolbar_title"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="2dp"
+                android:textColor="@android:color/white"
+                />
+
+            <RadioGroup
+                android:checkedButton="@+id/facebookbtn"
+                android:id="@+id/triToggleGroup"
+                android:layout_below="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/tri_toggle_outline"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginStart="1dp"
+                    android:id="@+id/facebookbtn"
+                    android:background="@drawable/tri_toggle_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="Facebook"
+                    android:textColor="@android:color/black" />
+
+                <RadioButton
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:id="@+id/instagrambtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tri_toggle_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Instagram"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@android:color/white" />
+
+                <RadioButton
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:id="@+id/twitterbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tri_toggle_background"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Twitter"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="28dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@android:color/white" />
+
+            </RadioGroup>
+
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_bell"
+                android:layout_alignParentEnd="true"
+                android:focusable="true"
+                android:clickable="true"
+                android:id="@+id/notification_bell"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <!-- Fragment Container -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/app_toolbar"
+        android:layout_above="@id/bottom_nav"
         android:id="@+id/fragment_activity_container"/>
 
-    <include
+
+    <!-- BottomBar -->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        layout="@layout/header_main" />
+        app:elevation="18dp"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <!-- FAB Button -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/playlistFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:elevation="24dp"
+        app:srcCompat="@drawable/ic_play" />
+
 </RelativeLayout>

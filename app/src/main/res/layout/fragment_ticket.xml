@@ -4,5 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ticketrecycler"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginBottom="@dimen/bottom_margin"
     tools:context="amit.apps.aurora_raw3.TicketsFragment" />
