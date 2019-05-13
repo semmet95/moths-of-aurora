@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="amit.apps.aurora_raw3.VideolyricsActivity"
-    tools:ignore="ContentDescription" >
+    tools:ignore="ContentDescription">
 
     <fragment
         android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
@@ -19,46 +19,56 @@
         android:layout_height="wrap_content"
         android:id="@+id/videotitle"
         android:layout_alignParentStart="true"
-        android:textStyle="bold"
         android:layout_below="@+id/ytFragment"
         android:layout_toStartOf="@+id/playlistaddbutton"
-        android:layout_marginTop="5dp"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="14sp"
+        android:textColor="@color/black"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/playlistaddbutton"
-        android:src="@drawable/baseline_playlist_add_white_36"
-        android:background="@color/transparent_black"
+        app:srcCompat="@drawable/ic_add_to_playlist_black"
+        android:background="@android:color/transparent"
         android:layout_alignParentEnd="true"
         android:onClick="addiconClicked"
         android:layout_below="@+id/ytFragment"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"/>
 
-    <FrameLayout
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/ButtonStyle"
+        android:id="@+id/addlyrics"
+        android:layout_below="@id/videotitle"
+        android:layout_marginStart="12dp"
+        android:text="Get Lyrics"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:onClick="addlyricsclicked" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/videotitle">
+        android:layout_below="@id/videotitle">
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_add_circular"
-            android:id="@+id/addlyrics"
-            android:onClick="addlyricsclicked" />
+            android:layout_height="wrap_content"
+            android:id="@+id/lyricstext"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:paddingBottom="10dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/lyricstext"
-                android:visibility="gone"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-                android:padding="10dp"/>
-        </ScrollView>
-    </FrameLayout>
+    </ScrollView>
+
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -35,7 +36,7 @@ public class VideolyricsActivity extends AppCompatActivity {
     public static int currentpojo;
     private static ArrayList<String> playlistids;
     private TextView videotitle, lyricstext;
-    private ImageView addlyrics;
+    private Button addlyrics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

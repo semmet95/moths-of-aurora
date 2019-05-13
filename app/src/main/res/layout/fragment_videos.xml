@@ -4,5 +4,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/videosrecycler"
-    android:layout_marginBottom="@dimen/bottom_margin"
     tools:context="amit.apps.aurora_raw3.VideosFragment" />

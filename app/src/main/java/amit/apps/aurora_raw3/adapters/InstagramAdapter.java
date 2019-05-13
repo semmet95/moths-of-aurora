@@ -1,5 +1,6 @@
 package amit.apps.aurora_raw3.adapters;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
@@ -37,11 +38,11 @@ public class InstagramAdapter {
             postmessage.setText(p);
         }
 
-        public void setProfilethumbnail(String url, Fragment context) {
-            Glide.with(context).load(url).apply(RequestOptions.circleCropTransform()).into(profilethumbnail);
+        public void setProfilethumbnail(String url, Context context) {
+            Glide.with(context).load(url).apply(RequestOptions.circleCropTransform().placeholder(context.getResources().getDrawable(R.drawable.user))).into(profilethumbnail);
         }
 
-        public void setPostthumbnail(String url, Fragment context) {
+        public void setPostthumbnail(String url, Context context) {
             //Log.e("post thumbnail :", "loading with url - "+url);
             Glide.with(context).load(url).into(postthumbnail);
         }

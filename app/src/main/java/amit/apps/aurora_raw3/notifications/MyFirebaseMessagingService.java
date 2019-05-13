@@ -16,7 +16,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import amit.apps.aurora_raw3.ActivityFragment;
 import amit.apps.aurora_raw3.MainActivity;
 import amit.apps.aurora_raw3.R;
 import amit.apps.aurora_raw3.datainitializers.SettingsHolder;
@@ -130,25 +129,29 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
             String notificationtitle=remoteMessage.getData().get("title");
             //Log.e("notification received :", "with app in background with title = "+notificationtitle);
+            /**
+             *  Unable to get why we're setting up values for .tabtoload & .fragmenttoload here
+             *  when we're checking what kinda notification is this in the MainActivity.
+             */
             if(notificationtitle.compareTo("Facebook")==0 && notifyFA) {
                 //Log.e("notifying :", "for fb");
-                ActivityFragment.tabtoload=0;
+                //ActivityFragment.tabtoload=0;
                 notificationManager.notify(facebook_group,fbId, faNotification);
             } else if(notificationtitle.compareTo("Instagram")==0 && notifyIN) {
                 //Log.e("notifying :", "for insta");
-                ActivityFragment.tabtoload=1;
+                //ActivityFragment.tabtoload=1;
                 notificationManager.notify(instagram_group,inId, inNotification);
             } else if(notificationtitle.compareTo("Twitter")==0 && notifyTW) {
                 //Log.e("notifying :", "for tweet");
-                ActivityFragment.tabtoload=2;
+                //ActivityFragment.tabtoload=2;
                 notificationManager.notify(twitter_group,twId, twNotification);
             } else if(notificationtitle.compareTo("Tickets")==0 && notifyTI) {
                 //Log.e("notifying :", "for ticket");
-                MainActivity.fragmenttoload=4;
+                //MainActivity.fragmenttoload=4;
                 notificationManager.notify(tickets_group,tiId, tiNotification);
             } else if(notificationtitle.compareTo("Youtube")==0 && notifyVI) {
                 //Log.e("notifying :", "for video");
-                MainActivity.fragmenttoload=3;
+                //MainActivity.fragmenttoload=3;
                 notificationManager.notify(videos_group,viId, viNotification);
             }
 

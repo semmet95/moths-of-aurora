@@ -1,9 +1,11 @@
 package amit.apps.aurora_raw3.adapters;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,18 +32,18 @@ public class TwitterAdapter {
         }
 
         public void setTimeposted(String t) {
-            timeposted.setText(t);
+            timeposted.setText(t.substring(0,t.lastIndexOf(":")));
         }
 
         public void setPostmessage(String p) {
             postmessage.setText(p);
         }
 
-        public void setProfilethumbnail(String url, Fragment context) {
-            Glide.with(context).load(url).apply(RequestOptions.circleCropTransform()).into(profilethumbnail);
+        public void setProfilethumbnail(String url, Context context) {
+            Glide.with(context).load(url).apply(RequestOptions.circleCropTransform().placeholder(context.getResources().getDrawable(R.drawable.user))).into(profilethumbnail);
         }
 
-        public void setPostthumbnail(String url, Fragment context) {
+        public void setPostthumbnail(String url, Context context) {
             Glide.with(context).load(url).into(postthumbnail);
         }
 
@@ -49,7 +51,8 @@ public class TwitterAdapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Uri uri = Uri.parse("https://www.twitter.com/auroramusic/status/"+u);
+                    Uri uri = Uri.parse(u);
+                    // Log.d("Twitter URL",u);
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     itemView.getContext().startActivity(intent);
                 }

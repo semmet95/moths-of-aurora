@@ -37,7 +37,6 @@ public class ActivityInstagramFragment extends Fragment {
 
         MyFirebaseMessagingService.unseennotifications.remove("Instagram");
 
-        ActivityFragment.tabtoload=1;
 
         instagramrecycler=layout.findViewById(R.id.instagramrecycler);
 
@@ -98,8 +97,8 @@ public class ActivityInstagramFragment extends Fragment {
 
                 holder.setTimeposted(model.getCreated_time());
                 holder.setPostmessage(model.getMessage());
-                holder.setProfilethumbnail(DatabaseHolder.getInstagramprofilepicurl(), getParentFragment());
-                holder.setPostthumbnail(model.getFull_picture(), getParentFragment());
+                holder.setProfilethumbnail(DatabaseHolder.getInstagramprofilepicurl(), getContext());
+                holder.setPostthumbnail(model.getFull_picture(), getContext());
                 holder.setUrl(model.getLink());
             }
 
