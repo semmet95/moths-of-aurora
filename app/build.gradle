@@ -40,6 +40,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:11.8.0'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation 'com.google.code.gson:gson:2.2.4'
+    implementation 'com.android.support:support-annotations:27.1.1'
 
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     implementation 'com.android.support:preference-v7:26.1.0'
